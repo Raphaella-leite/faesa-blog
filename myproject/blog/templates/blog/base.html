@@ -1,0 +1,1619 @@
+{% load static %}
+
+<!doctype html><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="pt-br" > <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="pt-br" >        <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="pt-br" >               <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="pt-br"><!--<![endif]--><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="EAD FAESA">
+    <meta name="description" content="Estude no EAD FAESA! Conheça nossos cursos, opções de bolsas de estudo, localizações disponíveis e mais. Inscreva-se!">
+    <meta name="generator" content="HubSpot">
+    <title>EAD FAESA | A melhor Graduação EAD da sua região</title>
+    <link rel="shortcut icon" href="https://ead.faesa.br/hubfs/cropped-logo_faesa_perfil.png">
+    
+
+    <script src="/hs/hsstatic/jquery-libs/static-1.1/jquery/jquery-1.7.1.js"></script>
+<script>hsjQuery = window['jQuery'];</script>
+    <meta property="og:description" content="Estude no EAD FAESA! Conheça nossos cursos, opções de bolsas de estudo, localizações disponíveis e mais. Inscreva-se!">
+    <meta property="og:title" content="EAD FAESA | A melhor Graduação EAD da sua região">
+    <meta name="twitter:description" content="Estude no EAD FAESA! Conheça nossos cursos, opções de bolsas de estudo, localizações disponíveis e mais. Inscreva-se!">
+    <meta name="twitter:title" content="EAD FAESA | A melhor Graduação EAD da sua região">
+
+    
+
+    
+<!-- Início do aviso de consentimento de cookies OneTrust para ead.faesa.br -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/cb9cb992-b147-4b4c-88da-2ff9e2cb5e9e/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="cb9cb992-b147-4b4c-88da-2ff9e2cb5e9e"></script>
+<script type="text/javascript">
+function OptanonWrapper() {
+    // Get initial OnetrustActiveGroups ids
+    if (typeof OptanonWrapperCount == "undefined") {
+        otGetInitialGrps();
+    }
+
+    //Delete cookies
+    otDeleteCookie(otIniGrps);
+
+    // Assign OnetrustActiveGroups to custom variable
+    function otGetInitialGrps() {
+        OptanonWrapperCount = '';
+        otIniGrps = OnetrustActiveGroups;
+    }
+
+    function otDeleteCookie(iniOptGrpId) {
+        var otDomainGrps = JSON.parse(JSON.stringify(Optanon.GetDomainData().Groups));
+        var otDeletedGrpIds = otGetInactiveId(iniOptGrpId, OnetrustActiveGroups);
+        if (otDeletedGrpIds.length != 0 && otDomainGrps.length != 0) {
+            for (var i = 0; i < otDomainGrps.length; i++) {
+                //Check if CustomGroupId matches
+                if (otDomainGrps[i]['CustomGroupId'] != '' && otDeletedGrpIds.includes(otDomainGrps[i]['CustomGroupId'])) {
+                    for (var j = 0; j < otDomainGrps[i]['Cookies'].length; j++) {
+                        //Delete cookie
+                        eraseCookie(otDomainGrps[i]['Cookies'][j]['Name']);
+                    }
+                }
+
+                //Check if Hostid matches
+                if (otDomainGrps[i]['Hosts'].length != 0) {
+                    for (var j = 0; j < otDomainGrps[i]['Hosts'].length; j++) {
+                        //Check if HostId presents in the deleted list and cookie array is not blank
+                        if (otDeletedGrpIds.includes(otDomainGrps[i]['Hosts'][j]['HostId']) && otDomainGrps[i]['Hosts'][j]['Cookies'].length != 0) {
+                            for (var k = 0; k < otDomainGrps[i]['Hosts'][j]['Cookies'].length; k++) {
+                                //Delete cookie
+                                eraseCookie(otDomainGrps[i]['Hosts'][j]['Cookies'][k]['Name']);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+        otGetInitialGrps(); //Reassign new group ids
+    }
+
+    //Get inactive ids
+    function otGetInactiveId(customIniId, otActiveGrp) {
+        //Initial OnetrustActiveGroups
+        customIniId = customIniId.split(",");
+        customIniId = customIniId.filter(Boolean);
+
+        //After action OnetrustActiveGroups
+        otActiveGrp = otActiveGrp.split(",");
+        otActiveGrp = otActiveGrp.filter(Boolean);
+
+        var result = [];
+        for (var i = 0; i < customIniId.length; i++) {
+            if (otActiveGrp.indexOf(customIniId[i]) <= -1) {
+                result.push(customIniId[i]);
+            }
+        }
+        return result;
+    }
+
+    //Delete cookie
+    function eraseCookie(name) {
+        //Delete root path cookies
+        document.cookie = name + '=; Max-Age=-99999999; Path=/; Domain=.faesa.br;';
+ 	document.cookie = name + '=; Max-Age=-99999999; Path=/; Domain=.ead.faesa.br;';
+
+        //Delete LSO incase LSO being used, cna be commented out.
+        localStorage.removeItem(name);
+
+        //Check for the current path of the page
+        pathArray = window.location.pathname.split('/');
+        //Loop through path hierarchy and delete potential cookies at each path.
+        for (var i = 0; i < pathArray.length; i++) {
+            if (pathArray[i]) {
+                //Build the path string from the Path Array e.g /site/login
+                var currentPath = pathArray.slice(0, i + 1).join('/');
+                document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + '; Domain=.ead.faesa.br;';
+              
+                //Maybe path has a trailing slash!
+                document.cookie = name + '=; Max-Age=-99999999; Path=' + currentPath + '/; Domain=.ead.faesa.br;';
+              
+            }
+        }
+
+    }
+}
+</script>
+<!-- Final do aviso de consentimento de cookies OneTrust para ead.faesa.br -->
+
+    <style>
+a.cta_button{-moz-box-sizing:content-box !important;-webkit-box-sizing:content-box !important;box-sizing:content-box !important;vertical-align:middle}.hs-breadcrumb-menu{list-style-type:none;margin:0px 0px 0px 0px;padding:0px 0px 0px 0px}.hs-breadcrumb-menu-item{float:left;padding:10px 0px 10px 10px}.hs-breadcrumb-menu-divider:before{content:'›';padding-left:10px}.hs-featured-image-link{border:0}.hs-featured-image{float:right;margin:0 0 20px 20px;max-width:50%}@media (max-width: 568px){.hs-featured-image{float:none;margin:0;width:100%;max-width:100%}}.hs-screen-reader-text{clip:rect(1px, 1px, 1px, 1px);height:1px;overflow:hidden;position:absolute !important;width:1px}
+</style>
+
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504955414/1642422496816/module_38504955414_Global_Top_Module_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504824546/1622816513177/module_38504824546_Header_2_Backgrounds_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/1642423034254/module_44098414978_CTA_Text_Bar_-_GA.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504945094/1609856445793/module_38504945094_Slider_IMG_Link_Content_Campaing_IES_20_-_GA.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38505013192/1625684372440/module_38505013192_Toggleable_Tabs_Courses_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38505013290/1625511075880/module_38505013290_Toggleable_3Tabs_2Col_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504944858/1623186721564/module_38504944858_Features_Vantagens_2Col_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38499074550/1610729847627/module_38499074550_Toggleable_4Tabs_2Col_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38505013193/1613588521183/module_38505013193_Blog_Posts_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38505055982/1629734172965/module_38505055982_Form_Section_2Col_-_IES_20.min.css">
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504955524/1642422789842/module_38504955524_Global_Footer_-_IES_20.min.css">
+    
+
+    
+    <link rel="canonical" href="https://ead.faesa.br">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- anti-flicker snippet (recommended)  -->
+<style>.async-hide { opacity: 0 !important} </style>
+<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+})(window,document.documentElement,'async-hide','dataLayer',4000,
+{'GTM-KD6PCDP':true});</script>
+
+<meta name="google-site-verification" content="KOyRzX-9LhTydjOTfLhmaxgBogs5a8-EzAt5IcjNUpY">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KD6PCDP');</script>
+<!-- End Google Tag Manager -->
+<meta property="og:url" content="https://ead.faesa.br">
+<meta name="twitter:card" content="summary">
+<meta http-equiv="content-language" content="pt-br">
+<link rel="stylesheet" href="//cdn2.hubspot.net/hub/7052064/hub_generated/template_assets/1647888430956/hubspot/hubspot_default/shared/responsive/layout.min.css">
+
+
+<link rel="stylesheet" href="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/template_assets/38504944984/1609781526201/Modules_and_Templates_-_GA/Templates_Library/Web_Projects/IES_20_-_GA/css/ies20-main.min.css">
+
+
+    <script src="https://kit.fontawesome.com/0562bf39be.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    
+
+</head>
+<body class="   hs-content-id-24313828767 hs-site-page page " style="">
+    <div class="header-container-wrapper">
+    <div class="header-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget custom-menu-primary" style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_159182014537069" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="top-section">
+  <div class="limit">
+    <div class="top-content">
+      <div class="logo-top"> 
+        <a href="/"><img src="https://ead.faesa.br/hubfs/FAESA-Dec-09-2020-07-50-54-92-PM.png" alt="EAD FAESA"></a>
+      </div>
+       <div class="content-top-menu"> 
+         <nav class="cta-button-mobile">
+          <ul>
+            <li><a href="/inscricao" style="color:#fff;">Inscreva-se</a>
+             <ul>
+              <li><a href="https://ead.faesa.br/inscricao/">Graduação</a></li>
+              <li><a href="https://ead.faesa.br/inscricao-pos-graduacao">Pós-Graduação</a></li>
+             </ul>
+            </li>
+           </ul>
+         </nav>
+          <nav class="mobile-menu" role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <li><a href="https://ead.faesa.br/cursos-graduacao">Cursos de Graduação</a></li>
+                  <li><a href="https://ead.faesa.br/cursos-pos-graduacao">Cursos de Pós-Graduação</a></li>
+                  <li><a href="https://ead.faesa.br/como-ingressar-ead">Como Ingressar</a></li>
+                  <li><a href="https://ead.faesa.br/bolsas-de-estudos-ead">Bolsas de Estudo</a></li>
+                  <li><a href="https://ead.faesa.br/como-funciona-ead">Como Funciona</a></li>
+                  <li><a href="https://ead.faesa.br/fale-conosco">Contato</a></li>
+                  <li><a href="https://ead.faesa.br/blog">Blog</a></li>
+                  <li><a href="https://ead.faesa.br/aluno">ALUNO</a></li>
+                </ul>
+             </div>
+            </nav>
+            
+         
+         <nav class="menu-topo">
+          <ul>
+            <li><a href="#CURSOS">Cursos <i class="arrow-menu arrow-down"></i></a>
+              <ul>
+              <li><a href="#CURSOS" data-ic-title="graduacao">Graduação <i class="arrow-menu arrow-down"></i></a>
+                <div class="megamenu-all-courses">
+                  <div class="megamenu-item graduacao"> 
+                    
+                    
+                    
+                      <ul>
+                        
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/administracao-ead">Administração EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/analise-e-desenvolvimento-de-sistemas-ead">Análise e Desenvolvimento de Sistemas EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/arquitetura-e-urbanismo-semipresencial">Arquitetura e Urbanismo Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/ciencias-contabeis-ead">Ciências Contábeis EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/ciencias-da-religiao-ead">Ciências da Religião EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/educacao-fisica-semipresencial">Educação Física Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-civil-semipresencial">Engenharia Civil Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-da-computacao-semipresencial">Engenharia da Computação Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-de-controle-e-automacao-semipresencial">Engenharia de Controle e Automação Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-de-software-semipresencial">Engenharia de Software Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-eletrica-semipresencial">Engenharia Elétrica Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-mecanica-semipresencial">Engenharia Mecânica Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-de-producao-semipresencial">Engenharia de Produção Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/engenharia-quimica-semipresencial">Engenharia Química Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/fisioterapia-semipresencial">Fisioterapia Semipresencial</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-comercial-ead">Gestão Comercial EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-da-producao-industrial-ead">Gestão da Produção Industrial EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-tecnologia-informacao-ead">Gestão da Tecnologia da Informação EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-de-recursos-humanos-ead">Gestão de Recursos Humanos EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-do-agronegocio-ead">Gestão do Agronegócio EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-financeira-ead">Gestão Financeira EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/gestao-publica-ead">Gestão Pública EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/historia-ead">História EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/letras-ead">Letras EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/logistica-ead">Logística EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/marketing-ead">Marketing EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/matematica-ead">Matemática EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/pedagogia-ead">Pedagogia EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/processos-gerenciais-ead">Processos Gerenciais EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/redes-de-computadores-semipresencial">Redes de Computadores EAD</a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/servico-social-ead">Serviço Social EAD </a></li>
+                         
+                          
+                          <li><a href="https://ead.faesa.br/cursos-graduacao/sistemas-de-informacao-ead">Sistemas de Informação EAD </a></li>
+                        
+                      </ul>
+                      <a href="https://ead.faesa.br/cursos-graduacao/" class="view-all-courses">VER TODOS OS CURSOS</a>
+                    
+                   </div>    
+                  </div>
+                </li>
+                <li><a href="../cursos-pos-graduacao" data-ic-title="pos-graduacao">Pós-Graduação <i class="arrow-menu arrow-down"></i></a>
+                  <div class="megamenu-all-courses">                
+                    <div class="megamenu-item pos"> 
+                      
+                      
+                      
+                        <ul>
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/administracao-publica-ead">Administração Pública EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/agromarketing-ead">Agromarketing, Tecnologia e Inovação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/alfabetizacao-e-letramento-ead">Alfabetização e Letramento EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/alfabetizacao-metodologias-ead">Alfabetização e Metodologias Inovadoras na Educação Básica EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/analise-de-cenarios-ead">Análise de Cenários, Marketing Estratégico e Indústria 4.0 EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/auditoria-governamental-ead">Auditoria Governamental EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/bigdata-marketing-ead">Big Data e Marketing EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/coaching-ead">Coaching e Gestão de Pessoas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/legislacao-farmaceutica-ead">Consultoria e Legislação Farmacêutica EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/data-warehouse-ead">Data Warehouse e Business Intelligence EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/desenvolvimento-de-software-e-metodologias-ageis-ead">Desenvolvimento de Software com Metodologias Ágeis EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/desenvolvimento-e-sustentabilidade-ead">Desenvolvimento e Sustentabilidade EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/design-educacional-ead">Design Educacional EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/design-thinking-e-criatividade-ead">Design Thinking e Criatividade EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/direito-administrativo-e-gestao-publica-ead">Direito Administrativo e Gestão Pública EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/direito-ambiental-ead">Direito Ambiental EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/direito-penal-e-criminologia-ead">Direito Penal e Criminologia EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/direito-processual-penal-ead">Direito Processual Penal EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/direitos-humanos-ead">Direitos Humanos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/docencia-no-ensino-superior-ead">Docência no Ensino Superior EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/economia-criativa-ead">Economia Criativa EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-a-distancia-ead">Educação a Distância EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-distancia-gestao-e-tutoria-ead">Educação a Distância: Gestão e Tutoria EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-corporativa-ead">Educação Corporativa e Gestão do Conhecimento EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-de-jovens-e-adultos-ead">Educação de Jovens e Adultos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-em-contextos-nao-escolares-ead">Educação em Contextos Não Escolares EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-fisica-escolar-ead">Educação Física Escolar EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-para-a-infancia-ead">Educação Para a Infância  EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-diversidade-ead">Educação Para Diversidade EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/educacao-desenvolvimento-infantil-ead">Educação, Ludicidade e Desenvolvimento Infantil EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/engenharia-da-manutencao-ead">Engenharia da Manutenção EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/engenharia-producao-enfase-gestao-ead">Engenharia da Produção com Ênfase em Gestão EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/engenharia-de-requisitos-de-software-ead">Engenharia de Requisitos de Software EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/ensino-historia-geografia-ead">Ensino de História e Geografia EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/ensino-de-leitura-e-producao-textual-ead">Ensino de Leitura e Produção Textual EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/linguagens-artisticas-ead">Ensino, Aprendizagem e Linguagens Artísticas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/escrita-criativa-e-producao-literaria-ead">Escrita Criativa e Produção Literária EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gerenciamento-crises-ead">Gerenciamento de Crises EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-de-aprendizagem-ead">Gestão da Aprendizagem e Educação Cognitiva EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-da-cadeia-de-suprimentos-ead">Gestão da Cadeia de Suprimentos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-da-qualidade-ead">Gestão da Qualidade EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-da-ti-ead">Gestão da Tecnologia da Informação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-comunicacao-ead">Gestão de Comunicação em Instituições Públicas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/comunicacao-saude-publica-ead">Gestão de Comunicação na Saúde Pública EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/empreendimentos-alimentos-ead">Gestão de Empreendimentos de Alimentos e Bebidas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-eventos-ead">Gestão de Eventos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-labaratorio-ead">Gestão de Laboratório de Análises Clínicas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-de-negocios-em-saude-ead">Gestão de Negócios em Saúde EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-de-processos-educacionais-ead">Gestão de Processos Educacionais EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-de-projetos-ead">Gestão de Projetos PMI-PMBoK EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-e-lideranca-distancia-ead">Gestão e Liderança no Ensino a Distância EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-esporte-lazer-ead">Gestão e Marketing em Esporte e Lazer EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-educacional-e-processos-escolares-ead">Gestão Educacional e Processos Escolares EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-educacional-ead">Gestão Educacional EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-farmaceutica-ead">Gestão Farmacêutica EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-hospitalar-e-auditoria-ead">Gestão Hospitalar e Auditoria EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/inovacao-e-aprendizagem-matematica-e-ciencias-ead">Inovação e Aprendizagem no Ensino de Matemática e Ciências EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/gestao-saude-ead">Inovação e Liderança na Gestão da Saúde EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/lean-production-ead">Lean Production EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/libras-ead">Libras EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/licitacoes-ead">Licitações e Compras Públicas Sustentáveis EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/lideranca-de-times-remotos-ead">Liderança de Times Remotos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/literatura-ead">Literatura EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/marketing-experiencia-ead">Marketing de Experiência EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/marketing-digital-para-e-commerce-ead">Marketing Digital para E-Commerce EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/marketing-varejo-farmaceutico-ead">Marketing do Varejo Farmacêutico EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/arketing-pequenas-empresas-ead">Marketing Para Pequenas e Médias Empresas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-financas-corporativas-ead">MBA em Finanças Corporativas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-de-cooperativas-ead">MBA em Gestão de Cooperativas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-de-investimentos-ead">MBA em Gestão de Investimentos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-de-pessoas-ead">MBA em Gestão de Pessoas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-vendas-negociacao-ead">MBA em Gestão de Vendas e Negociação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-do-agronegocio-ead">MBA em Gestão do Agronegócio EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-gestao-estrategica-de-negocios-ead">MBA em Gestão Estratégica de Negócios EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-em-lideranca-ead">MBA em Liderança EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/mba-marketing-criatividade-inovacao-ead">MBA em Marketing, Criatividade e Inovação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/aprendizagem-educacao-infantil-ead">Metodologia e Avaliação da Aprendizagem na Educação Infantil EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/metodologias-ativas-ead">Metodologias Ativas de Aprendizagem EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/metodologias-docentes-ead">Metodologias Ativas e Práticas Docentes Para Educação Básica EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/metodologias-ensino-fundamental-ead">Metodologias de Aprendizagem Para a Educação Infantil e Ensino Fundamental EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/motricidade-ead">Motricidade e Desenvolvimento Motor na Educação Infantil EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/neuromarketing-ead">Neuromarketing EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/orientacao-educacional-ead">Orientação Educacional EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/pedagogia-social-ead">Pedagogia Social EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/politicas-publicas-educacionais-ead">Políticas Públicas Educacionais EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/processos-avaliativos-na-educacao-ead">Processos Avaliativos na Educação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/processos-de-aprendizagem-em-abientes-virtuais-ead">Processos de Aprendizagem em Ambientes Virtuais EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/producao-lingua-portuguesa-ead">Produção de Material Didático e Avaliações Para Língua Portuguesa EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/pratica-educacao-infantil-ead">Prática Docente na Educação Infantil EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/praticas-inovadoras-ead">Práticas Inovadoras em Educação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/psicomotricidade-ead">Psicomotricidade na Educação Infantil EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/psicopedagogia-ead">Psicopedagogia EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/revisao-de-textos-ead">Revisão de Textos EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/seguranca-publica-e-criminologia-ead">Segurança Pública e Criminologia EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/supervisao-educacional-ead">Supervisão Educacional EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/tecnologias-digitais-ead">Tecnologias Digitais Aplicadas à Educação EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/tecnologias-e-desenvolvimento-web-e-mobile-ead">Tecnologias e Desenvolvimento Web e Mobile EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/telecomunicacoes-ead">Telecomunicações com Ênfase em Redes, Sistemas de Informação e Internet das Coisas EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/lingua-portuguesa-ead">Teorias da Aprendizagem e o Ensino de Língua Portuguesa EAD</a></li>                
+                           
+                            <li><a href="https://ead.faesa.br/cursos-pos-graduacao/etica-cidadania-e-direitos-humanos-ead">Ética, Cidadania e Direitos Humanos EAD</a></li>                
+                          
+                        </ul>
+                        <a href="https://ead.faesa.br/cursos-pos-graduacao/" class="view-all-courses">VER TODOS OS CURSOS</a>
+                        <a href="https://ead.faesa.br/pos-graduacao-ead" class="btn-pos-ead">QUERO SER CONVENCIDO</a>
+                      
+                    </div>     
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li><a href="https://ead.faesa.br/como-ingressar-ead">Como ingressar</a></li>
+            <li><a href="https://ead.faesa.br/bolsas-de-estudos-ead">Bolsas</a></li>
+            <li><a href="https://ead.faesa.br/como-funciona-ead">Como funciona</a></li>
+            <li><a href="https://ead.faesa.br/fale-conosco">Contato</a></li>
+            <li><a href="https://ead.faesa.br/blog">Blog</a></li>
+            <li><a href="https://ead.faesa.br/aluno" class="a-login">ALUNO</a></li>
+            
+            <li class="cta-top-desktop"><a>Inscreva-se</a>
+             <ul class="option-cta-desktop">
+              <li><a href="https://ead.faesa.br/inscricao">Graduação</a></li>
+              <li><a href="https://ead.faesa.br/inscricao-pos-graduacao">Pós-Graduação</a></li>
+             </ul>
+            </li>
+            
+            
+            <li>
+              
+              
+              <div class="cta-whats-box">
+                <div class="whats-top-btn box-whats"><i class="fab fa-whatsapp btn" aria-hidden="true"></i>
+                  <div class="whats-lv1">
+                    <div class="arrow-up"></div>
+                    
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=5527996602484&amp;text=Ol%C3%A1%21%20Quero%20me%20inscrever%20na%20FAESA">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      <span>Quero ser aluno de graduação</span>
+                    </a>
+                    
+                    <a class="btn-modal" onclick="openModal()">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      <span>Quero ser aluno de pós-graduação</span>
+                    </a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=5527998249044&amp;text=Ol%C3%A1!%20Sou%20aluno%20EAD%20da%20FAESA">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      Já sou aluno
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+            </li>
+          </ul>
+         </nav>
+
+      </div>       
+    </div>
+  </div>
+</div>
+
+            <div class="mobile-wpp-btn">
+                <div class="cta-whats-box">
+                <div class="whats-top-btn box-whats"><i class="fab fa-whatsapp btn" aria-hidden="true"></i>
+                  <div class="whats-lv1 mobile">
+                    <div class="arrow-down wpp"></div>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=5527996602484&amp;text=Ol%C3%A1%21%20Quero%20me%20inscrever%20na%20gradua%C3%A7%C3%A3o%20FAESA.">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      <span>Quero ser aluno de graduação</span>
+                    </a>
+                    
+                    <a class="btn-modal" onclick="openModal()">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      <span>Quero ser aluno de pós-graduação</span>
+                    </a>
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=5527998249044&amp;text=Ol%C3%A1!%20Sou%20aluno%20EAD%20da%20FAESA">
+                      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                      Já sou aluno
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          <div id="myModal" class="modal">
+            <div class="closemodal" onclick="closeModal()"></div>
+            <div class="modal-content">
+                <div class="modal-wpp-header">
+                  <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
+                  <span class="close cursor" onclick="closeModal()">×</span>
+                </div>
+              <div class="box-modal-wpp">
+                <div class="content-modal-wpp">      
+                  <p class="modal-info-wpp">Certo, vamos dar continuidade no seu atendimento. Por favor, preencha as informações abaixo.</p>
+                  <div class="form-wpp">
+                    <!--[if lte IE 8]>
+                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script>
+                    <![endif]-->
+                    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
+                    <script>
+                      hbspt.forms.create({
+                      region: "na1",
+                      portalId: "6064042",
+                      formId: "89d644a4-cd38-424f-9f7c-56773a398387"
+                    });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <script>
+            function openModal() {
+              document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeModal() {
+              document.getElementById("myModal").style.display = "none";
+            } 
+          </script></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end header -->
+</div><!--end header wrapper -->
+
+<div class="body-container-wrapper">
+    <div class="body-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_162255835521257" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-hero-backgrounds" style="background:#ffffff;">
+          <div class="banner-one" style="background-image: url('https://ead.faesa.br/hubfs/ies20/masthead-home-faesa-graduacao-ead-1.jpg')">
+            <div class="content-hero-header-wrapper">
+              <div class="content-box">
+                <h1>Graduação EAD em um dos melhores Centros Universitários do Brasil</h1>
+                <p>Chegou a hora de realizar o sonho da sua formação com o EAD que te impulsiona para o mercado.</p>
+                    
+                  <a class="cta-slider-header" href="/inscricao">Inscreva-se</a>
+                
+              </div> 
+            </div>
+          </div> 
+          <div class="banner-two" style="background-image: url('https://ead.faesa.br/hubfs/ies20/masthead-banner-home-pos-graduacao-ead-faesa-1.jpg')">
+            <div class="content-hero-header-wrapper">
+              <div class="content-box">
+                <h2>Pós +Carreira EAD FAESA: uma pós, vários certificados. </h2>
+                <p></p>
+                    
+                  <a class="cta-slider-header" href="/pos-graduacao-ead"><i class="fas fa-angle-double-right"></i> Saiba mais</a>
+                
+              </div> 
+            </div>
+          </div>
+  <div class="content-wrapper">  
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_161706629295128" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module">
+</div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-3 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1597347296258304" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-campaing-slider" style="background:#fffff;">
+  <div class="content-wrapper">
+    
+<div class="hero-carousel" data-flickity="" data-js="hero-carousel">
+ 
+   <div class="hero-carousel__cell hero-carousel__cell--1" style="background-color: #fffff;background-image: url('');">
+     <div class="hero-carousel__cell__content">              
+       <div class="content-hero link-img-content">
+             <a href="/enem">
+      <img alt="Campanha" src="https://ead.faesa.br/hubfs/enempromo%20-%20LP%20-%20banerzao%20inicio%201394x280%20faesa.png">
+  </a>
+       </div>   
+     </div>
+    </div>
+
+  
+   <div class="hero-carousel__cell hero-carousel__cell--1" style="background-color: #fffff;background-image: url('');">
+     <div class="hero-carousel__cell__content">              
+       <div class="content-hero link-img-content">
+             <a href="/mega-chance">
+      <img alt="Campanha" src="https://ead.faesa.br/hubfs/banner-campanha-megachance-1.jpg">
+  </a>
+       </div>   
+     </div>
+    </div>
+
+   
+</div>
+  
+  
+</div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-4 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1597351709889570" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-toggleable-tabs" style="background:#ffffff;">
+  <div class="section-toggleable-tabs-detail courses" style="background-image: url('https://ead.faesa.br/hubfs/ies20/bg-cursos-grad-ead-faesa.jpg')"></div>
+
+  <div class="content-wrapper">
+
+<h2>ENCONTRE O CURSO EAD <b>QUE MAIS COMBINA COM VOCÊ!</b></h2>
+    <p>
+      A FAESA tem cursos de graduação que te proporcionam diversas possibilidades de atuação, todos reconhecidos pelo MEC.
+    </p>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Graduacao')" id="defaultOpen">Graduação EAD</button>
+  <button class="tablinks" onclick="openCity(event, 'Pos')">Pós-Graduação EAD</button>
+</div>
+    
+<div id="Graduacao" class="tabcontent">
+  
+    <div class="internal-tab">
+    <a href="/cursos-graduacao/administracao-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/card-administracao-faesa-ead.png')"></a>
+    <div class="content-internal-tab">
+        <a class="title-course-card" href="/cursos-graduacao/administracao-ead">Administração</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Bacharelado</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-graduacao/administracao-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+    <div class="internal-tab">
+    <a href="/cursos-graduacao/analise-e-desenvolvimento-de-sistemas-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/card-analise-desenvolvimento-sistemas-faesa-ead.png')"></a>
+    <div class="content-internal-tab">
+        <a class="title-course-card" href="/cursos-graduacao/analise-e-desenvolvimento-de-sistemas-ead">Análise e Desenvolvimento de Sistemas</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Técnólogo</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-graduacao/analise-e-desenvolvimento-de-sistemas-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+    <div class="internal-tab">
+    <a href="/cursos-graduacao/ciencias-contabeis-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/card-ciencias-contabeis-faesa-ead.png')"></a>
+    <div class="content-internal-tab">
+        <a class="title-course-card" href="/cursos-graduacao/ciencias-contabeis-ead">Ciências Contábeis</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Bacharelado</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-graduacao/ciencias-contabeis-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+  <a class="section-cta-courses" href="/cursos-graduacao/">VER TODOS OS CURSOS</a>
+</div>
+
+<div id="Pos" class="tabcontent">
+  
+    <div class="internal-tab">
+    <a href="/cursos-pos-graduacao/administracao-publica-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/POS/card-curso-pos-graduacao-ead-ADMINISTRACAO-Publica.jpg')"></a>
+    <div class="content-internal-tab">
+      <a class="title-course-card" href="/cursos-pos-graduacao/administracao-publica-ead">Administração Pública</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Pós-Graduação</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-pos-graduacao/administracao-publica-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+    <div class="internal-tab">
+    <a href="/cursos-pos-graduacao/psicopedagogia-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/POS/card-curso-pos-graduacao-ead-PSICOPEDAGOGIA.jpg')"></a>
+    <div class="content-internal-tab">
+      <a class="title-course-card" href="/cursos-pos-graduacao/psicopedagogia-ead">Psicopedagogia</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Pós-Graduação</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-pos-graduacao/psicopedagogia-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+    <div class="internal-tab">
+    <a href="/cursos-pos-graduacao/coaching-ead" class="internal-tab-img" style="background-image: url('https://ead.faesa.br/hubfs/ies20/POS/card-curso-pos-graduacao-ead-COACHING-E-GESTAO-DE-PESSOAS.jpg')"></a>
+    <div class="content-internal-tab">
+      <a class="title-course-card" href="/cursos-pos-graduacao/coaching-ead">Coaching e Gestão de Pessoas</a>
+        
+        <p><i class="fas fa-graduation-cap"></i> Pós-Graduação</p> 
+        <p><i class="fas fa-laptop"></i> EAD</p> 
+        <a class="saiba-mais-card" href="/cursos-pos-graduacao/coaching-ead">Saiba mais</a>
+      </div>  
+    </div>  
+  
+  <a class="section-cta-courses" href="/cursos-pos-graduacao/">VER TODOS OS CURSOS</a>
+</div>
+
+    
+    <script async defer>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+       // Get the element with id="defaultOpen" and click on it
+       document.getElementById("defaultOpen").click();
+    </script>
+  
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-5 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_160103857726369" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-toggleable-tabs-courses" style="background:#ffffff;">
+  
+
+  <div class="content-wrapper">
+
+    <div class="padding-tabs-section">
+<h2>3 PASSOS PARA ESTUDAR NO MELHOR <b>EAD DO ESPÍRITO SANTO</b></h2>
+
+<div class="tab2">
+  <button class="tablinks2" onclick="Steps(event, 'PassoUm')" id="defaultOpen2">1. Escolha a modalidade</button>
+  <button class="tablinks2 ajuste" onclick="Steps(event, 'PassoDois')">2.  Inscreva-se</button>
+  <button class="tablinks2" onclick="Steps(event, 'PassoTres')">3. Faça sua matrícula</button>
+</div>
+    
+<div id="PassoUm" class="tabcontent2">
+    <div class="internal-tab2">
+      <div class="content-left">
+        
+          
+          
+            
+          
+          <img src="https://ead.faesa.br/hubfs/ies20/step-1-escolha-a-modalidade.jpg" alt="Escolha a Modalidade" style="max-width: 100%; height: auto;">
+        
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_1.content_text"><p>A FAESA conta com cursos EAD em dois formatos. Conheça:</p></div>        
+            
+            <div class="bullet-item full">   
+              
+            
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i>  <b>EAD:</b>  faça sua faculdade online estudando de onde e quando quiser com conteúdos disponíveis no Portal do Aluno.</div>
+            </div>
+             
+            <div class="bullet-item full">   
+              
+            
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i>  <b>Semipresencial:</b> estude online toda a teoria do seu curso EAD e coloque em prática os aprendizados em aulas presenciais nos campi da FAESA.</div>
+            </div>
+           
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_1.content_text_2"></div>
+              
+        <a class="link-content-tab2" href="/inscricao">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+
+<div id="PassoDois" class="tabcontent2">
+    <div class="internal-tab2">
+      <div class="content-left">
+        <img src="https://ead.faesa.br/hubfs/ies20/step-2-faca-a-inscricao.jpg" alt="Ingressar no EAD" style="max-width: 100%; height: auto;">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_2.content_text"><p>A FAESA tem diversas formas de entrada na graduação EAD. Escolha a melhor para você:</p></div>        
+            
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> VESTIBULAR ONLINE</div>
+            </div>
+             
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> ENTRE COM SEU DIPLOMA</div>
+            </div>
+             
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> TRANSFERÊNCIA PARA FAESA</div>
+            </div>
+             
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> USE A SUA NOTA DO ENEM </div>
+            </div>
+             
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> EX-ALUNO FAESA</div>
+            </div>
+             
+            <div class="bullet-item half">   
+              
+              
+              <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_text" data-hs-cos-field="list_item"><i class="fas fa-chevron-circle-right"></i> VESTIBULAR AGENDADO</div>
+            </div>
+           
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_2.content_text_2"></div>
+              
+        <a class="link-content-tab2" href="/inscricao">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+    
+<div id="PassoTres" class="tabcontent2">
+    <div class="internal-tab2">
+      <div class="content-left">
+        <img src="https://ead.faesa.br/hubfs/ies20/step-3-faca-sua-matricula.jpg" alt="Faça a Matrícula" style="max-width: 100%; height: auto;">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_3.content_text"><p>Agora é só se matricular, pagar a primeira mensalidade e trocar seu status para “estudante universitário”. <br>Estude no melhor Centro Universitário do Espírito Santo e prepare-se para todos os desafios do mercado de trabalho!</p></div>        
+          
+        <div id="hs_cos_wrapper_module_160103857726369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="step_3.content_text_2"></div>
+              
+        <a class="link-content-tab2" href="https://faesa.grupoa.education/orbita/candidate/">MATRICULE-SE</a>
+      </div> 
+    </div>  
+</div>
+    
+
+    
+    <script async defer>
+      function Steps(evt, TresPassos) {
+        var i, tabcontent2, tablinks2;
+        tabcontent2 = document.getElementsByClassName("tabcontent2");
+        for (i = 0; i < tabcontent2.length; i++) {
+          tabcontent2[i].style.display = "none";
+        }
+        tablinks2 = document.getElementsByClassName("tablinks2");
+        for (i = 0; i < tablinks2.length; i++) {
+          tablinks2[i].className = tablinks2[i].className.replace(" active", "");
+        }
+        document.getElementById(TresPassos).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+       // Get the element with id="defaultOpen" and click on it
+       document.getElementById("defaultOpen2").click();
+    </script>
+    </div>
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-6 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1597353387899713" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-feature-vantagens" style="background:#ffffff;">
+  
+  <div class="content-wrapper">
+
+          <div class="content-left">
+            <h2 class="title-section-vantagens">CONHEÇA AS <b>VANTAGENS DE ESTUDAR NO EAD DA FAESA</b></h2>
+            <p class="subtitle-section-vantagens"></p>
+              
+                <div class="content-left-item">
+                <div class="icon-item"><img src="https://ead.faesa.br/hubfs/ies20/icon-qualidade-do-curso-presencial.png" alt="icon-qualidade-do-curso-presencial"></div>
+                <div class="content-item">
+                  <div id="hs_cos_wrapper_module_1597353387899713_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="content_text"><h2><strong>MESMA QUALIDADE</strong> QUE O PRESENCIAL</h2>
+<p>Os professores do EAD da FAESA são os mesmos do presencial e as exigências do curso a distância também. Assim, garantimos que você estudará com a qualidade do nosso ensino presencial, que tem avaliação de excelência e está entre os 3 melhores do Brasil.</p></div>
+                </div>
+                </div>
+              
+                <div class="content-left-item">
+                <div class="icon-item"><img src="https://ead.faesa.br/hubfs/ies20/icon-economia-de-tempo-e-flexibilidade.png" alt="Metodologia"></div>
+                <div class="content-item">
+                  <div id="hs_cos_wrapper_module_1597353387899713_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="content_text"><h2><strong>ESTUDE</strong> DE ONDE E QUANDO QUISER</h2>
+<p>Nos cursos a distância da FAESA você pode estudar onde e quando quiser por meio do material disponível no Portal do Aluno. Assim, você tem tempo para trabalhar, cuidar da família e viajar, sem perder nada em conteúdo e qualidade de ensino. </p></div>
+                </div>
+                </div>
+              
+                <div class="content-left-item">
+                <div class="icon-item"><img src="https://ead.faesa.br/hubfs/ies20/icon-credibilidade-mercado.png" alt="Credibilidade"></div>
+                <div class="content-item">
+                  <div id="hs_cos_wrapper_module_1597353387899713_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="content_text"><h2><strong>FOCO NO MERCADO</strong> DE TRABALHO</h2>
+<p>A FAESA é muito mais que teoria e prática. Nós oferecemos um modelo de ensino inovador que leva você a realmente entender o dia a dia das profissões, tornando-se um profissional solucionador de problemas, perfil que é muito valorizado no mercado de trabalho atual.</p></div>
+                </div>
+                </div>
+              
+          </div> 
+          <div class="content-right">
+            
+              
+              
+                
+              
+              <img class="lazy" data-src="https://f.hubspotusercontent40.net/hubfs/6064042/ies20/vatagens-ead-faesa-1.png" alt="Aluna da graduação EAD sorrindo, usando um celular e segurando cadernos." style="max-width: 100%; height: auto;">
+            
+          </div> 
+
+    <div class="content-full">
+    
+      <div class="box-numbers">
+      <div class="box-numbers-item" style="background-image: url('https://ead.faesa.br/hubfs/ies20/bg-big-numbers.png')">   
+        
+        <img src="https://ead.faesa.br/hubfs/ies20/icon-centro-universitario-v3.png" alt="icon-centro-universitario-v3" style="max-width: 100%; height: auto;">
+      </div>
+        
+        <p>O melhor Centro Universitário da Região Sudeste e terceiro melhor do Brasil (IGC/MEC)</p>
+      </div>
+    
+      <div class="box-numbers">
+      <div class="box-numbers-item" style="background-image: url('https://ead.faesa.br/hubfs/ies20/bg-big-numbers.png')">   
+        
+        <img src="https://ead.faesa.br/hubfs/ies20/icon-estrutura-de-ponta-v3.png" alt="Infraestrutura de excelência" style="max-width: 100%; height: auto;">
+      </div>
+        
+        <p>Infraestrutura de excelência</p>
+      </div>
+    
+      <div class="box-numbers">
+      <div class="box-numbers-item" style="background-image: url('https://ead.faesa.br/hubfs/ies20/bg-big-numbers.png')">   
+        
+        <img src="https://ead.faesa.br/hubfs/ies20/icon-formacao-com-criatividade-v3.png" alt="Foco no Empreendedorismo e na Inovação" style="max-width: 100%; height: auto;">
+      </div>
+        
+        <p>Foco no Empreendedorismo e na Inovação</p>
+      </div>
+    
+      <div class="box-numbers">
+      <div class="box-numbers-item" style="background-image: url('https://ead.faesa.br/hubfs/ies20/bg-big-numbers.png')">   
+        
+        <img src="https://ead.faesa.br/hubfs/ies20/icon-aulas-praticas-v3.png" alt="Alto índice de empregabilidade dos alunos formados: 85% atuam em sua área de formação" style="max-width: 100%; height: auto;">
+      </div>
+        
+        <p>Alto índice de empregabilidade dos alunos formados: 85% atuam em sua área de formação</p>
+      </div>
+    
+    </div> 
+    
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-7 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_160104282945869" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-toggleable-tabs-tabs" style="background:#ffffff;">
+  
+
+  <div class="content-wrapper">
+
+<div class="padding-tabs-section">
+<h2>MENSALIDADES QUE CABEM NO <b>SEU BOLSO</b></h2>
+<p class="subtitle-tabs-section">A FAESA oferece diversas bolsas de estudos para as graduações EAD. Conheça:</p>
+<div class="tab3">
+  <button class="tablinks3" onclick="Bolsas(event, 'Bolsa1')" id="defaultOpen3">Bolsa ENEM</button>
+  <button class="tablinks3" onclick="Bolsas(event, 'Bolsa2')">Bolsa transferência</button>
+  <button class="tablinks3" onclick="Bolsas(event, 'Bolsa3')">Segunda Graduação</button>
+  <button class="tablinks3 ajuste" onclick="Bolsas(event, 'Bolsa4')">Ex-Aluno</button>
+</div>
+    
+<div id="Bolsa1" class="tabcontent3">
+    <div class="internal-tab3">
+      <div class="content-left">
+          <img src="https://ead.faesa.br/hubfs/ies20/banner-bolsa-enem-home-faesa.jpg" alt="Bolsa Home ENEM">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160104282945869_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="bolsa_1.content_text"><p>O EAD FAESA oferece <strong>bolsas de até 100%*</strong> para novos alunos que ingressarem com a nota do ENEM. Não precisa fazer vestibular!</p>
+<p style="font-size: 12px;"><span style="text-decoration: underline;"><a href="/bolsas-de-estudos-ead" rel="noopener">*Consulte condições.</a></span></p></div>        
+          
+        <a class="link-content-tab3" href="/enem">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+
+<div id="Bolsa2" class="tabcontent3">
+    <div class="internal-tab3">
+      <div class="content-left">
+          <img src="https://ead.faesa.br/hubfs/ies20/banner-bolsa-home-transferencia-1.png" alt="Aluna da graduação EAD sorrindo e apontando para a palavra transferência.">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160104282945869_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="bolsa_2.content_text"><p>Venha estudar no melhor EAD do Espírito Santo com uma incrível <strong>bolsa de estudos de 35%*</strong> no primeiro semestre da graduação. Aproveite!</p>
+<p style="font-size: 12px;"><span style="text-decoration: underline;"><a href="/bolsas-de-estudos-ead" rel="noopener">*Consulte condições.</a></span></p></div>        
+          
+        <a class="link-content-tab3" href="/transferencia">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+  
+  
+<div id="Bolsa3" class="tabcontent3">
+    <div class="internal-tab3">
+      <div class="content-left">
+          <img src="https://ead.faesa.br/hubfs/ies20/banner-bolsa-segunda-graduacao-1.png" alt="Aluno da graduação EAD sorrindo e segurando uma caneta.">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160104282945869_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="bolsa_3.content_text"><p>Você já tem um diploma? Faça sua segunda faculdade no EAD FAESA e ganhe<strong> bolsa de 35%*</strong> no semestre!</p>
+<p style="font-size: 12px;"><span style="text-decoration: underline;"><a href="/bolsas-de-estudos-ead" rel="noopener">*Consulte condições.</a></span></p></div>        
+          
+        <a class="link-content-tab3" href="/inscricao">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+  
+<div id="Bolsa4" class="tabcontent3">
+    <div class="internal-tab3">
+      <div class="content-left">
+          <img src="https://ead.faesa.br/hubfs/ies20/banner-bolsa-home-ex-aluno-faesa.png" alt="Ex-aluno">
+      </div> 
+      <div class="content-right">
+        <div id="hs_cos_wrapper_module_160104282945869_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="bolsa_4.content_text"><p>Quem já é formado pela FAESA tem vantagem para fazer graduação EAD: ganhe <strong>bolsa de 40%*</strong> no semestre!&nbsp;</p>
+<p style="font-size: 12px;"><span style="text-decoration: underline;"><a href="/bolsas-de-estudos-ead" rel="noopener">*Consulte condições.</a></span></p></div>        
+          
+        <a class="link-content-tab3" href="/inscricao">INSCREVA-SE</a>
+      </div> 
+    </div>  
+</div>
+    
+  <a class="section-cta" href="/bolsas-de-estudos-ead">VER TODAS AS BOLSAS DISPONÍVEIS</a>
+
+    
+    <script async defer>
+      function Bolsas(evt, TresPassos) {
+        var i, tabcontent3, tablinks3;
+        tabcontent3 = document.getElementsByClassName("tabcontent3");
+        for (i = 0; i < tabcontent3.length; i++) {
+          tabcontent3[i].style.display = "none";
+        }
+        tablinks3 = document.getElementsByClassName("tablinks3");
+        for (i = 0; i < tablinks3.length; i++) {
+          tablinks3[i].className = tablinks3[i].className.replace(" active", "");
+        }
+        document.getElementById(TresPassos).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+       // Get the element with id="defaultOpen" and click on it
+       document.getElementById("defaultOpen3").click();
+    </script>
+    </div>
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-8 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1597348755801419" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-blog-post" style="background:#fafafa;">
+  
+  <div class="content-wrapper">
+    <h2>CONFIRA AS ÚLTIMAS NOVIDADES SOBRE <b>EDUCAÇÃO E CARREIRA NO NOSSO BLOG!</b></h2>
+           
+    
+    
+    <div class="recent-post-blog">
+      <a href="https://ead.faesa.br/blog/sociologia-no-enem" class="recent-header-post" style="background-image: url('https://ead.faesa.br/hubfs/sociologia-no-enem.jpg')"></a>
+
+      <div class="recent-content-post">
+      <h3><a href="https://ead.faesa.br/blog/sociologia-no-enem">Sociologia no Enem: o que você precisa saber sobre a matéria</a></h3>
+      
+      </div>
+      <div class="recent-content-post-footer">
+        Março 24, 2022
+
+        <div class="share-posts">
+         <i class="fas fa-share-alt share-active"></i>
+         <a href="https://api.whatsapp.com/send?l=pt_BR&amp;text=https://ead.faesa.br/blog/sociologia-no-enem" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+         <a href="https://www.facebook.com/sharer/sharer.php?u=https://ead.faesa.br/blog/sociologia-no-enem" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="recent-post-blog">
+      <a href="https://ead.faesa.br/blog/gestao-de-carreiras" class="recent-header-post" style="background-image: url('https://ead.faesa.br/hubfs/A%20importancia%20da%20gestao%20de%20carreiras%20para%20seu%20desenvolvimento%20profissional.webp')"></a>
+
+      <div class="recent-content-post">
+      <h3><a href="https://ead.faesa.br/blog/gestao-de-carreiras">A importância da gestão de carreiras para o profissional</a></h3>
+      
+      </div>
+      <div class="recent-content-post-footer">
+        Março 18, 2022
+
+        <div class="share-posts">
+         <i class="fas fa-share-alt share-active"></i>
+         <a href="https://api.whatsapp.com/send?l=pt_BR&amp;text=https://ead.faesa.br/blog/gestao-de-carreiras" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+         <a href="https://www.facebook.com/sharer/sharer.php?u=https://ead.faesa.br/blog/gestao-de-carreiras" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="recent-post-blog">
+      <a href="https://ead.faesa.br/blog/neurodivergente" class="recent-header-post" style="background-image: url('https://hs.maisead.info/hubfs/Por%20que%20as%20empresas%20deveriam%20buscar%20profissionais%20neurodivergentes-1.jpg')"></a>
+
+      <div class="recent-content-post">
+      <h3><a href="https://ead.faesa.br/blog/neurodivergente">Por que as empresas deveriam buscar profissionais neurodivergentes</a></h3>
+      
+      </div>
+      <div class="recent-content-post-footer">
+        Março 4, 2022
+
+        <div class="share-posts">
+         <i class="fas fa-share-alt share-active"></i>
+         <a href="https://api.whatsapp.com/send?l=pt_BR&amp;text=https://ead.faesa.br/blog/neurodivergente" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+         <a href="https://www.facebook.com/sharer/sharer.php?u=https://ead.faesa.br/blog/neurodivergente" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+
+        </div>
+      </div>
+    </div>
+
+     
+                
+ 
+                  
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+<div class="row-fluid-wrapper row-depth-1 row-number-9 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1597348506091369" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="section-form" style="background:#ffffff;">
+  
+  <div class="content-wrapper">
+
+          <div class="content-left">
+            
+              
+              
+                
+              
+              <img class="lazy" data-src="https://f.hubspotusercontent40.net/hubfs/6064042/ies20/fale-conosco-home-faesa-ead-1.png" alt="Aluno da graduação EAD usando um notebook." width="100%" style="max-width: 583px; max-height: 622px">
+            
+            
+
+          </div> 
+          <div class="content-right form-footer-home">
+            
+            <h2>QUER MAIS INFORMAÇÕES SOBRE OS MELHORES CURSOS EAD DO PAÍS?</h2>
+            <p>Entre em contato conosco e tire todas as suas dúvidas.</p>
+            <span id="hs_cos_wrapper_module_1597348506091369_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_form" style="" data-hs-cos-general-type="widget" data-hs-cos-type="form"><h3 id="hs_cos_wrapper_form_903761726_title" class="hs_cos_wrapper form-title" data-hs-cos-general-type="widget_field" data-hs-cos-type="text"></h3>
+
+<div id="hs_form_target_form_903761726"></div>
+
+
+
+
+
+
+
+
+
+</span>          
+          </div> 
+
+    
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end body -->
+</div><!--end body wrapper -->
+
+<div class="footer-container-wrapper">
+    <div class="footer-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-custom_widget " style="" data-widget-type="custom_widget" data-x="0" data-w="12">
+<div id="hs_cos_wrapper_module_1588007900798180" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_module" style="" data-hs-cos-general-type="widget" data-hs-cos-type="module"><div class="footer" style="background:#1D1D1D;color:#ffffff;">
+  <div class="limit">
+    <div class="footer-left-content">
+    <div class="logo-footer"> 
+      
+        
+        
+          
+        
+        <img src="https://ead.faesa.br/hubfs/Logos_175x70_FAESA-12.png" alt="FAESA" style="max-width: 100%; height: auto;">
+      
+     </div>
+     <div class="content-footer"> 
+       <div id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_inline_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="inline_rich_text" data-hs-cos-field="left_text"><h3>Conhecimento que faz a diferença </h3>
+<p>Faça EAD na FAESA e conquiste as ferramentas que transformarão a sua vida. </p></div>
+       <div class="social-share-footer">
+        
+        <a href="https://api.whatsapp.com/send?phone=5527996602484&amp;text=Ol%C3%A1%21" target="_blank" rel="noopener">
+         <i class="fab fa-whatsapp"></i>
+        </a>
+        
+          <a href="https://www.facebook.com/faesaoficial" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>        
+        
+          <a href="https://www.instagram.com/faesa_oficial/?hl=pt-br" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>        
+        
+          <a href="https://www.youtube.com/user/faesaoficial" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>        
+        
+       </div>
+
+    </div>       
+    </div>
+    
+    
+    <div class="footer-right-content">
+    
+    <div class="content-control-footer" style="width:27%;">
+      <h3>CURSOS</h3>          
+      <span id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu"><div id="hs_menu_wrapper_module_1588007900798180_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="" data-menu-id="" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/cursos-graduacao" role="menuitem" target="_self">Graduação</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/cursos-pos-graduacao" role="menuitem" target="_self">Pós-Graduação</a></li>
+ </ul>
+</div></span>
+     </div>
+     
+    <div class="content-control-footer" style="width:35%;">
+      <h3>SEJA UM ALUNO</h3>          
+      <span id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu"><div id="hs_menu_wrapper_module_1588007900798180_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="" data-menu-id="" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/como-ingressar-ead" role="menuitem" target="_self">Como ingressar</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/bolsas-de-estudos-ead" role="menuitem" target="_self">Bolsas de Estudo</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/como-funciona-ead" role="menuitem" target="_self">Como funciona</a></li>
+ </ul>
+</div></span>
+     </div>
+     
+    <div class="content-control-footer" style="width:25%;">
+      <h3>INSTITUCIONAL</h3>          
+      <span id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu"><div id="hs_menu_wrapper_module_1588007900798180_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="" data-menu-id="" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/fale-conosco" role="menuitem" target="_self">Contato</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/blog" role="menuitem" target="_self">Blog</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://f.hubspotusercontent40.net/hubfs/6064042/FAESA%20P%C3%93S.pdf" role="menuitem" target="_self">Contrato de Prestação de Serviços Educacionais a Distância - Pós Graduação</a></li>
+ </ul>
+</div></span>
+     </div>
+     
+    <div class="content-control-footer" style="width:27%;">
+      <h3>PRIVACIDADE</h3>          
+      <span id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu"><div id="hs_menu_wrapper_module_1588007900798180_" class="hs-menu-wrapper active-branch flyouts hs-menu-flow-horizontal" role="navigation" data-sitemap-name="" data-menu-id="" aria-label="Navigation Menu">
+ <ul role="menu">
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/politica-privacidade" role="menuitem" target="_self">Política de Privacidade</a></li>
+  <li class="hs-menu-item hs-menu-depth-1" role="none"><a href="https://ead.faesa.br/politica-cookies" role="menuitem" target="_self">Política de Cookies</a></li>
+ </ul>
+</div></span>
+     </div>
+     
+    <div class="menu-footer-lp"><span id="hs_cos_wrapper_module_1588007900798180_" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_simple_menu" style="" data-hs-cos-general-type="widget" data-hs-cos-type="simple_menu"><ul></ul></span></div> 
+  </div>
+
+  </div>
+  
+  <div class="copyright">
+    <p>© 2021 FAESA. Todos os direitos reservados.</p>
+  </div>
+</div></div>
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end footer -->
+</div><!--end footer wrapper -->
+
+    
+<script>
+(function () {
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/_hcms/perf', true /*async*/);
+            xhr.setRequestHeader("Content-type", "application/json");
+            xhr.onreadystatechange = function () {
+                // do nothing.
+            };
+            var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+            function populateNetworkInfo(name, connection, info) {
+                if (name in connection) {
+                    info[name] = connection[name];
+                }
+            }
+            var networkInfo = {};
+            if (connection) {
+                ['type', 'effectiveType', 'downlink', 'rtt'].forEach(function(name) {
+                    populateNetworkInfo(name, connection, networkInfo);
+                });
+            }
+            var perfData = {
+                url: location.href,
+                portal: 6064042,
+                content: 24313828767,
+                group: -1,
+                connection: networkInfo,
+                timing: performance.timing
+            };
+            xhr.send(JSON.stringify(perfData));
+        }, 3000);  // Execute this 3 seconds after onload.
+    });
+})();
+</script>
+
+<script src="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/template_assets/38505026304/1607435261804/Modules_and_Templates_-_GA/Templates_Library/Web_Projects/IES_20_-_GA/js/ies20.min.js"></script>
+<script>
+var hsVars = hsVars || {}; hsVars['language'] = 'pt-br';
+</script>
+
+<script src="/hs/hsstatic/cos-i18n/static-1.53/bundles/project.js"></script>
+<script src="https://ead.faesa.br/hs-fs/hub/6064042/hub_generated/module_assets/38504945094/1609856445539/module_38504945094_Slider_IMG_Link_Content_Campaing_IES_20_-_GA.min.js"></script>
+
+    <!--[if lte IE 8]>
+    <script charset="utf-8" src="https://js.hsforms.net/forms/v2-legacy.js"></script>
+    <![endif]-->
+
+<script data-hs-allowed="true" src="/_hcms/forms/v2.js"></script>
+
+    <script data-hs-allowed="true">
+        var options = {
+            portalId: '6064042',
+            formId: 'd115dcf4-18a9-4244-9017-06699da3cb03',
+            formInstanceId: '1390',
+            pageId: '24313828767',
+            region: 'na1',
+            
+            
+            
+            
+            pageName: "EAD FAESA | A melhor Gradua\u00E7\u00E3o EAD da sua regi\u00E3o",
+            
+            
+            
+            inlineMessage: "<p>Obrigado por enviar sua mensagem. Aguarde nosso contato!</p>",
+            
+            
+            rawInlineMessage: "<p>Obrigado por enviar sua mensagem. Aguarde nosso contato!</p>",
+            
+            
+            hsFormKey: "06639e768b788382bada4337ebc6cd32",
+            
+            
+            css: '',
+            target: '#hs_form_target_form_903761726',
+            
+            
+            
+            
+            
+            contentType: "standard-page",
+            
+            
+            formsBaseUrl: '/_hcms/forms/',
+            
+            
+            formData: {
+                cssClass: 'hs-form stacked hs-custom-form'
+            }
+        };
+
+        options.getExtraMetaDataBeforeSubmit = function() {
+            var metadata = {};
+            
+
+            if (hbspt.targetedContentMetadata) {
+                var count = hbspt.targetedContentMetadata.length;
+                var targetedContentData = [];
+                for (var i = 0; i < count; i++) {
+                    var tc = hbspt.targetedContentMetadata[i];
+                     if ( tc.length !== 3) {
+                        continue;
+                     }
+                     targetedContentData.push({
+                        definitionId: tc[0],
+                        criterionId: tc[1],
+                        smartTypeId: tc[2]
+                     });
+                }
+                metadata["targetedContentMetadata"] = JSON.stringify(targetedContentData);
+            }
+
+            return metadata;
+        };
+
+        hbspt.forms.create(options);
+    </script>
+
+
+<!-- Start of HubSpot Analytics Code -->
+<script type="text/javascript">
+var _hsq = _hsq || [];
+_hsq.push(["setContentType", "standard-page"]);
+_hsq.push(["setCanonicalUrl", "https:\/\/ead.faesa.br"]);
+_hsq.push(["setPageId", "24313828767"]);
+_hsq.push(["setContentMetadata", {
+    "contentPageId": 24313828767,
+    "legacyPageId": "24313828767",
+    "contentFolderId": null,
+    "contentGroupId": null,
+    "abTestId": null,
+    "languageVariantId": 24313828767,
+    "languageCode": "pt-br",
+    
+}]);
+</script>
+
+<script type="text/javascript" id="hs-script-loader" async defer src="/hs/scriptloader/6064042.js"></script>
+<!-- End of HubSpot Analytics Code -->
+
+
+<script type="text/javascript">
+var hsVars = {
+    ticks: 1648124850457,
+    page_id: 24313828767,
+    
+    content_group_id: 0,
+    portal_id: 6064042,
+    app_hs_base_url: "https://app.hubspot.com",
+    cp_hs_base_url: "https://cp.hubspot.com",
+    language: "en",
+    analytics_page_type: "standard-page",
+    analytics_page_id: "24313828767",
+    category_id: 1,
+    folder_id: 0,
+    is_hubspot_user: false
+}
+</script>
+
+
+<script defer src="/hs/hsstatic/HubspotToolsMenu/static-1.119/js/index.js"></script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KD6PCDP" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+    
+    <!-- Generated by the HubSpot Template Builder - template version 1.03 -->
+
+</body></html>
